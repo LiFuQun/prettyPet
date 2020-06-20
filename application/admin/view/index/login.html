@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--2020 6.2 李富群-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="./static/css/admin/bootstrap.min.css">
+</head>
+<body style="background-color: #F9F9F9;font-size: 20px;">
+<div class="container" style="width: 30%;margin-top: 0;">
+    <div style="background-color: white;margin-top: 100px;padding: 50px;border-radius: 10px;box-shadow: 0 5px 10px 0 grey" >
+        <div align="center">
+            <img src="./static/img/admin/p.jpg" alt="..." class="img-circle" height="100px" width="100px;">
+        </div>
+            <hr>
+            <div>
+                <div class="form-group" style="margin-top: 20px">
+                    <label for="name">Username</label>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Admin">
+                </div>
+                <div class="form-group" style="margin-top: 20px">
+                    <label for="Password">Password</label>
+                    <a href="#" style="float: right;font-size: 12px;">忘记密码</a>
+                    <input type="password" name="pwd" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div id="result"></div>
+                <button type="submit" onclick="submitlog()" id="button" class="btn btn-primary btn-block" style="margin-top: 30px">登录</button>
+            </div>
+    </div>
+</div>
+</body>
+<script src="./static/js/admin/jquery.min.js"></script>
+<script src="./static/js/admin/My.js"></script>
+<script>
+   $(function () {
+       $('#button').click(function () {
+           var name = $('#name').val();
+           var password = $('#password').val();
+           AJAX.ajaxPro({name:name,pwd:password,id:"result"});
+           // alert(name+password);
+       });
+   });
+</script>
+</html>
