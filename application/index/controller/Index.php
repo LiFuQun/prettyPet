@@ -8,7 +8,14 @@ class Index extends Controller
 {
     public function index()
     {
-        return $this->contact();
+//        return $this->contact();
+        return $this->problem();
+    }
+
+    public function problem(){
+        $data = Db::table('problem')->order('id', 'desc')->select();
+        $this->assign('data',$data);
+        return $this->fetch('problem');
     }
 
     public function contact(){
