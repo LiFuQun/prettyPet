@@ -8,9 +8,62 @@ class Index extends Controller
 {
     public function index()
     {
-       return $this->login();
-
+        return $this->fetch('publish');
     }
+
+    public function delete(Request $request){
+        $id = $request->param('id');
+        $table = $request->param('table');
+        $d = Db::table($table)->where('id',$id)->delete();
+        if($d){
+            echo "<script>alert('删除成功');history.back();</script>";
+        }else{
+            echo "<script>alert('删除失败');history.back();</script>";
+        }
+    }
+
+    public function edit(Request $request){
+        $id = $request->param('id');
+        $table = $request->param('table');
+        $data = Db::table($table)->where('id',$id)->find();
+        $this->assign('data',$data);
+        return $this->fetch('edit');
+    }
+
+    public function showproblem(){
+        $data = Db::table('problem')->order('id', 'desc')->select();
+        $this->assign('data',$data);
+        return $this->fetch('showproblem');
+    }
+
+    public function addproblem()
+    {
+        return $this->fetch('addproblem');
+    }
+
+    public function dealproblem(Request $request){
+
+//        problem  message
+        $data['problem'] = $request->param('problem');
+        $data['message'] = $request->param('message');
+        if($data['problem'] == ''){
+            echo "<script>alert('问题标题不能为空');history.go(-1);</script>";
+        }else{
+            if ($data['message'] == ''){
+                echo "<script>alert('输入解说不能为空');history.go(-1);</script>";
+            }else{
+                $db = Db::table('problem')->insert($data);
+                if($db){
+                    echo "<script>alert('添加成功');</script>";
+                    return $this->fetch('addproblem');
+                }else{
+                    echo "<script>alert('添加失败');</script>";
+                    return $this->fetch('editproblem');
+                }
+            }
+        }
+    }
+
     public function starter(){
         return $this->fetch('starter');
     }
