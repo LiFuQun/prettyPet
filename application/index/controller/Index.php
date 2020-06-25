@@ -10,6 +10,15 @@ class Index extends Controller
     {
         return $this->fetch('index');
     }
+
+    public function zixun(){
+        return $this->problem();
+    }
+    public function problem(){
+        $data = Db::table('problem')->order('id', 'desc')->select();
+        $this->assign('data',$data);
+        return $this->fetch('problem');
+    }
     public function contact(){
         $data =  Db::table('website')->find();
         $this->assign('data',$data);
