@@ -52,7 +52,7 @@
     <div class="container">
         <div class="row no-gutters">
             <div class="col-lg-12 bg-primary">
-                <form action="admin.php?s=index/dealproblem" method="post" class="p-5 contact-form">
+                <form action="admin.php?s=index/saveEdit/table/{$table}/id/{$data.id}" method="post" class="p-5 contact-form">
 
                     <h2 class="h4 mb-5 heading">编辑</h2>
                     {foreach $data as $k=>$v}
@@ -81,7 +81,7 @@
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label for="{$k}">{$k}</label>
-                            <textarea name="message" name="{$k}" id="{$k}" cols="30" rows="4" class="form-control">{$v}</textarea>
+                            <textarea name="{$k}" id="{$k}" cols="30" rows="4" class="form-control">{$v}</textarea>
                         </div>
                     </div>
                     {/if}

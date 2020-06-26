@@ -52,21 +52,3 @@
 
 </body>
 </html>
-<script type="text/javascript">
-    function save() {
-
-        var data = new Object;
-        data.title = $.trim($('input[name="title"]').val());
-        data.pclass = $.trim($('select[name="pclass"]').val());
-        data.keyword = $.trim($('input[name="keywords"]').val());
-        data.des = $.trim($('input[name="describe"]').val());
-
-        $.post("admin.php?s=index/savepublish",data, function(data){
-            if(data == 1){
-                alert('发布成功');
-            }else {
-                alert('发布失败');
-            }
-        });
-    }
-</script>

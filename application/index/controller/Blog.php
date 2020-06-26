@@ -8,8 +8,7 @@ class Blog extends Controller
 {
     public function index()
     {
-//        return $this->blog();
-        return $this->fetch('index');
+        return $this->blog();
     }
 
     public function blog(){
@@ -36,10 +35,11 @@ class Blog extends Controller
 
     public function single(Request $request){
         $qblog =  Db::table('publish')->order('id', 'desc')->limit(5)->select();//最新动态最先输出
-
         $id = $request->param('id');
-        $data = Db::table('publish')->where(['id'=>$id])->find();
+        $data = Db::table('publish')->where('id',$id)->find();
         $content = htmlspecialchars_decode($data['text']);
+        $comment = Db::table('comment')->where('pid',$id)->select();
+        $this->assign('comment',$comment);
         $this->assign('data',$data);
         $this->assign('content',$content);
         $this->assign('qblog',$qblog);
@@ -51,6 +51,19 @@ class Blog extends Controller
         $data['email'] = $request->param('email');
         $data['content'] = $request->param('message');
         $data['pid'] = $request->param('pid');
-        echo dump($data);
+
+        foreach ($data as $d){
+            if($d == ''){
+                echo '<script>alert("填写信息不能有空");history.go(-1)</script>';
+                return;
+            }
+        }
+
+        $insert = Db::table('comment')->insert($data);
+        if ($insert){
+            echo '<script>alert("留言成功");history.go(-1)</script>';
+        }else{
+            echo '<script>alert("留言失败");history.go(-1)</script>';
+        }
     }
 }

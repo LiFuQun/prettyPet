@@ -29,14 +29,14 @@
             <li><a href="#" class="nav-link">驿站</a></li>
             <li><a href="#" class="nav-link">志愿者</a></li>
             <li><a href="index.php?s=blog/blog" class="nav-link">博客</a></li>
-            <li><a href="index.php?s=index/zixun" class="nav-link">宠物资讯</a></li>
+            <li><a href="#" class="nav-link">宠物资讯</a></li>
             <li><a href="#" class="nav-link">照片墙</a></li>
 
             <li class="has-children">
               <a href="#" class="nav-link">关于</a>
               <ul class="dropdown">
                 <li><a href="#" class="nav-link">服务</a></li>
-                <li><a href="index.php?s=index/contact" class="nav-link">联系</a></li>
+                <li><a href="#" class="nav-link">联系</a></li>
               </ul>
             </li>
           </ul>
@@ -69,9 +69,25 @@
 
 
         <div class="pt-5">
+          <h3 class="mb-5">共{$comment|count}次评论</h3>
+          <ul class="comment-list">
+            {foreach $comment as $co}
+            <li class="comment">
+              <div class="vcard bio">
+                <img src="./static/img/index/moren.png" alt="Image">
+              </div>
+              <div class="comment-body">
+                <h3>{$co.name}</h3>
+                <div class="meta">{$co.create_time}</div>
+                <p>{$co.content}</p>
+                <p><a href="#" class="reply">回复</a></p>
+              </div>
+            </li>
+            {/foreach}
+          </ul>
           <div class="comment-form-wrap pt-5">
             <h3 class="mb-5">评论</h3>
-            <form action="index.php?s=index/login" class="">
+            <form action="index.php?s=blog/dealcommit" method="post" class="">
               <input type="hidden" name="pid" value="{$data.id}">
               <div class="form-group">
                 <label for="name">姓名</label>
@@ -79,7 +95,7 @@
               </div>
               <div class="form-group">
                 <label for="email">邮箱</label>
-                <input type="email" name="eamil" class="form-control" id="email">
+                <input type="email" name="email" class="form-control" id="email">
               </div>
 
               <div class="form-group">
@@ -97,10 +113,8 @@
       <div class="col-md-4 sidebar">
         <div class="sidebar-box" style="margin-top: 50px">
 
-          <div class="form-group">
-            <span class="icon fa fa-search"></span>
-            <input type="text" class="form-control" placeholder="输入关键字查找">
-          </div>
+          <span class="icon fa fa-search"></span>
+          <input type="text" class="form-control" placeholder="输入关键字查找">
 
         </div>
         <div class="sidebar-box">
@@ -128,10 +142,23 @@
         <p class="copyright"><small>
           Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >li-zhang-mao</a>
         </small></p>
+
       </div>
     </div>
   </div>
 </footer>
 
+<script src="./static/js/index/jquery-3.3.1.min.js"></script>
+<script src="./static/js/index/jquery-ui.js"></script>
+<script src="./static/js/index/popper.min.js"></script>
+<script src="./static/js/index/bootstrap.min.js"></script>
+<script src="./static/js/index/owl.carousel.min.js"></script>
+<script src="./static/js/index/jquery.countdown.min.js"></script>
+<script src="./static/js/index/jquery.easing.1.3.js"></script>
+<script src="./static/js/index/aos.js"></script>
+<script src="./static/js/index/jquery.fancybox.min.js"></script>
+<script src="./static/js/index/jquery.sticky.js"></script>
+<script src="./static/js/index/isotope.pkgd.min.js"></script>
+<script src="./static/js/index/main.js"></script>
 </body>
 </html>
