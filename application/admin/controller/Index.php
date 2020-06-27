@@ -19,6 +19,12 @@ class Index extends Controller
         return $this->fetch('main');
     }
 
+    public function web(){
+        $data =  Db::table('website')->find();
+        $this->assign('data',$data);
+        return $this->fetch('web');
+    }
+
     public function login(){
         return $this->fetch('login');
     }
@@ -71,6 +77,13 @@ class Index extends Controller
             $data['problem'] = $request->param('problem');
             $data['message'] = $request->param('message');
         }
+        if($table == 'website'){
+            $data['webname'] = $request->param('webname');
+            $data['phone'] = $request->param('phone');
+            $data['Operating_hours'] = $request->param('Operating_hours');
+            $data['email'] = $request->param('email');
+            $data['address'] = $request->param('address');
+        }
         foreach ($data as $d){
             if($d == ''){
                 echo "<script>alert('修改提交不能有空');history.go(-1);</script>";
@@ -95,8 +108,6 @@ class Index extends Controller
         return $this->fetch('addproblem');
     }
     public function dealproblem(Request $request){
-
-//        problem  message
         $data['problem'] = $request->param('problem');
         $data['message'] = $request->param('message');
         if($data['problem'] == ''){
@@ -116,5 +127,4 @@ class Index extends Controller
             }
         }
     }
-
 }
