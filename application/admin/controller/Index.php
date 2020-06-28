@@ -9,7 +9,9 @@ class Index extends Controller
     public function index()
     {
 //        return $this->fetch('publish');
-        return $this->showproblem();
+    $admin = "name";
+    $this->assign('admin',$admin);
+    return $this->fetch('main');
     }
 
     public function starter(){

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百科信息</title>
+
+    <link rel="stylesheet" href="./static/css/index/style.css">
+    <link rel="stylesheet" href="./static/font/icomoon/style.css">
+    <link rel="stylesheet" href="./static/css/index/bootstrap.min.css">
+</head>
+<body>
+<div class="" id="contact-section">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-10 bg-secondary">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-lg-10 text-center heading-section mb-5 align-self-center" style="padding: 20px;">
+                        <div class="paws">
+                            <span class="icon-paw"></span>
+                        </div>
+                        <h2 class="text-white mb-6">百科信息</h2>
+
+                        <table class="table table-hover" style="color: white;margin-top: 50px">
+                            <tbody>
+                            <tr>
+                                <td><b>百科词名</b></td>
+                                <td>{$data.name}</td>
+                            </tr>
+                            <tr>
+                                <td><b>百科分类</b></td>
+                                <td>{$data.classb}</td>
+                            </tr>
+                            <tr>
+                                <td><b>描述</b></td>
+                                <td>{$data.des}</td>
+                            </tr>
+                            <tr>
+                                <td><b>创建时间</b></td>
+                                <td>{$data.create_time}</td>
+                            </tr>
+                            <tr>
+                                <td><b>修改时间</b></td>
+                                <td>{$data.update_time}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">内容</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">{$data.content}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <a href="admin.php?s=index/edit/table/baike/id/{$data.id}" title="编辑">编辑百科内容</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>发表</title>
+    <title>添加百科</title>
 
     <link rel="stylesheet" type="text/css" href="./static/css/admin/bootstrap.min.css">
 
@@ -22,16 +22,20 @@
 <body style="background-color: whitesmoke">
 <form method="post" class="form">
     <div class="input-group input-group-sm">
-        <span class="input-group-addon">标题</span>
-        <input type="text" class="form-control" name="title" placeholder="请输入标题">
+        <span class="input-group-addon">词名</span>
+        <input type="text" class="form-control" name="name" placeholder="请输入百科词名">
     </div>
     <div class="input-group input-group-sm">
-        <span class="input-group-addon">&nbsp;关&nbsp;键&nbsp;字</span>
-        <input type="text" class="form-control" name="keywords" placeholder="请输入关键字">
+        <span class="input-group-addon">分类</span>
+        <select name="classb" id="classb"  class="form-control">
+            {foreach $data as $d}
+            <option value="{$d.classb}">{$d.classb}</option>
+            {/foreach}
+        </select>
     </div>
     <div class="input-group input-group-sm">
         <span class="input-group-addon">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述</span>
-        <input type="text" class="form-control" id="describe" name="describe" placeholder="请输入内容描述">
+        <input type="text" class="form-control" id="describe" name="des" placeholder="请输入百科描述">
     </div>
     <div class="input-group input-group-sm">
         <span class="input-group-addon">内容</span>
@@ -48,7 +52,7 @@
     function initEditor(){
         var E=window.wangEditor;
         editor=new E('#editor');
-        editor.customConfig.uploadImgServer = 'admin.php?s=blog/upload' ; // 上传图片到服务器
+        editor.customConfig.uploadImgServer = 'admin.php?s=baike/upload' ; // 上传图片到服务器
         editor.customConfig.uploadFileName = 'image_file';   //自定义 fileName
         editor.create();
     }
@@ -58,27 +62,31 @@
     function save() {
 
         var data = new Object;
-        data.title = $.trim($('input[name="title"]').val());
-        data.keyword = $.trim($('input[name="keywords"]').val());
-        data.des = $.trim($('input[name="describe"]').val());
+        data.name = $.trim($('input[name="name"]').val());
+        data.classb = $.trim($('select[name="classb"]').val());
+        data.des = $.trim($('input[name="des"]').val());
         data.content = editor.txt.html();
-        if(data.title == ''){
-            alert("输入标题");
+        if(data.name == ''){
+            alert("输入百科词名");
             return 1;
         }
-        if(data.keywords == ''){
-            alert('输入关键字');
+        if(data.classb == ''){
+            alert('选择分类');
+            return 1;
+        }
+        if(data.des == ''){
+            alert('输入描述');
             return 1;
         }
         if(data.content == '<p><br></p>'){
-            alert('输入博客内容');
+            alert('输入百科内容');
             return 1;
         }
-        $.post("admin.php?s=blog/savepublish",data, function(data){
+        $.post("admin.php?s=baike/dealbaike",data, function(data){
             if(data == 1){
-                alert('发布成功');
+                alert('添加成功');
             }else {
-                alert('发布失败');
+                alert('添加失败');
             }
         });
     }
