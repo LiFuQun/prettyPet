@@ -19,6 +19,19 @@ class Index extends Controller
         $this->assign('data',$data);
         return $this->fetch('problem');
     }
+
+    public function baike(){
+       
+        $data1 = Db::table('baike')->where('classb','猫')->select();
+        $data2 = Db::table('baike')->where('classb','狗')->select();
+        $data3 = Db::table('baike')->where('classb','其他')->select();
+      
+        $this->assign('data1',$data1);
+        $this->assign('data2',$data2);
+        $this->assign('data3',$data3);
+        return $this->fetch('baike/baike');
+    }
+
     public function contact(){
         $data =  Db::table('website')->find();
         $this->assign('data',$data);
