@@ -14,7 +14,7 @@ class Volunteer extends Controller
             $name ='';
         }
         if (Cookie::has('volunteer')){
-            $name = Cookie::get('volunteer');
+            $volunteer = Cookie::get('volunteer');
         }else{
             $volunteer ='';
         }
@@ -45,7 +45,7 @@ class Volunteer extends Controller
             $name ='';
         }
         if (Cookie::has('volunteer')){
-            $name = Cookie::get('volunteer');
+            $volunteer = Cookie::get('volunteer');
         }else{
             $volunteer ='';
         }
@@ -62,7 +62,7 @@ class Volunteer extends Controller
             $name ='';
         }
         if (Cookie::has('volunteer')){
-            $name = Cookie::get('volunteer');
+            $volunteer = Cookie::get('volunteer');
         }else{
             $volunteer ='';
         }
@@ -139,7 +139,7 @@ class Volunteer extends Controller
             $name ='';
         }
         if (Cookie::has('volunteer')){
-            $name = Cookie::get('volunteer');
+            $volunteer = Cookie::get('volunteer');
         }else{
             $volunteer ='';
         }

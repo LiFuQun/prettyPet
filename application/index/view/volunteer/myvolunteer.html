@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>志愿者</title>
+    <title>我的志愿者页面</title>
     <link rel="stylesheet" href="./static/font/icomoon/style.css">
 
     <link rel="stylesheet" href="./static/css/index/bootstrap.min.css">
@@ -72,83 +72,65 @@
 
 <div style="height: 100px"></div>
 
-<section class="site-section bg-light-blue block-13" id="testimonials-section" data-aos="fade">
-    <div class="container">
 
-        <div class="row justify-content-center" data-aos="fade-up">
+<div class="" id="contact-section">
+    <div class="container">
+        <div class="row justify-content-center aos-init aos-animate" data-aos="fade-up">
             <div class="col-lg-6 text-center heading-section mb-5">
                 <div class="paws">
                     <span class="icon-paw"></span>
                 </div>
-                <h2 class="text-black mb-2">本站等级前十的优秀志愿者</h2>
+                <h2 class="text-black mb-2">我的志愿者的页面</h2>
+                <p> 你若孤独，它陪伴你。在阳光的午后，蜷缩在你的臂弯。</p>
             </div>
         </div>
-        <div  data-aos="fade-up" data-aos-delay="200">
-            <div class="owl-carousel nonloop-block-13">
-                {foreach $excellent as $e}
-                <div>
-                    <div class="block-testimony-1 text-center">
-
-
-                        <blockquote class="mb-4" style="color: white">
-                            <img src="{$e.head}" alt="Image" class="img-fluid mx-auto">
-                        </blockquote>
-
-                        <h3>志愿者昵称：{$e.zname}</h3>
-                        <h3>{$e.create_time}</h3>
-                        <h5>志愿者等级：{$e.rank}</h5>
-                        <h5><a href="index.php?s=volunteer/single/id/{$e.id}">查看更多</a></h5>
-                    </div>
+        <div style="margin: 10px"></div>
+        <div class="row no-gutters" style="box-shadow: 0 7px 20px 0 grey;">
+            <div class="col-lg-2 bg-primary" >
+                <div style="margin: 20px;margin-top: 33%;width: 200px;height: 150px;">
+                    <img src="{$data.head}" alt="..." width="100%" height="100%" >
                 </div>
-                {/foreach}
+            </div>
+            <div class="col-lg-10 bg-primary" style="padding: 30px;">
+                <table class="table table-hover" style="color: #1c7430;overflow: hidden">
+                    <tbody>
+                    <tr>
+                        <td>查看驿站活动</td>
+                    </tr>
+                    <tr>
+                        <td>查看我的等级记录</td>
+                    </tr>
+                    <tr>
+                        <td>查看我的活动记录</td>
+                    </tr>
+                    <tr>
+                        <td> <a href="#all1" style="color: white">查看我的基本信息</a></td>
+                    </tr>
+                    <tr>
+                        <td>编辑我的志愿者信息</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-</section>
-<hr>
-<div class="container" style="margin-top: 50px">
-    <div class="row justify-content-center aos-init aos-animate" data-aos="fade-up">
-        <div class="col-lg-6 text-center heading-section mb-5">
-            <div class="paws">
-                <span class="icon-paw"></span>
-            </div>
-            <h2 class="text-black mb-2">本站志愿者</h2>
-            <p> 你若孤独，它陪伴你。在阳光的午后，蜷缩在你的臂弯。</p>
-        </div>
-    </div>
 
-    <div class="sidebar-box" align="center">
-        <form action="index.php?s=volunteer/search" method="post" class="search-form">
-            <div class="form-group">
-                <select name="select" id="select" style="width: 100px;border: none;height: 40px">
-                    <option value="address">地区</option>
-                    <option value="zname">昵称</option>
-                    <option value="degree">学历</option>
-                    <option value="position">现任职位</option>
-                    <option value="des">志愿者介绍</option>
-                    <option value="exp">志愿者经历</option>
-                    <option value="rank">志愿者等级</option>
-                </select>
-                <input type="text" name="search" id="search" placeholder="输入查询内容" style="width: 500px;border: none;height: 40px">
-                <input type="submit" value="查询" style="width: 100px;border: none;height: 40px">
-            </div>
-        </form>
-    </div>
 
-    <div class="row">
-        {foreach $data as $d}
-        <div class="col-md-6 mb-3 col-lg-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="">
-            <div class="block_service">
-                {if $d.head == ''} <img src="./static/img/index/moren.png" alt="Image mb-5">
-                {else /}<img src="{$d.head}" alt="Image mb-5">
-                {/if}
-                <h3>{$d.zname}</h3>
-                <p>{$d.address}</p>
-                <p>{$d.des} </p>
-                <a href="index.php?s=volunteer/single/id/{$d.id}">查看更多</a>
-            </div>
+        <div style="margin-top: 100px;box-shadow: 0 7px 20px 0 grey;">
+            <table id="all1" class="table-hover table">
+                <thead><tr style="background-color: #1c7430;color: white;text-align: center">
+                    <td>我的基本信息</td></tr></thead>
+                <tbody>
+                <tr><td>昵称：{$data.zname}</td></tr>
+                <tr><td>地址：{$data.address}</td></tr>
+                <tr><td>学历：{$data.degree}</td></tr>
+                <tr><td>职位：{$data.position}</td></tr>
+                <tr><td>自我描述：{$data.des}</td></tr>
+                <tr><td>经历：{$data.exp}</td></tr>
+                <tr><td>等级：{$data.rank}</td></tr>
+                </tbody>
+            </table>
         </div>
-        {/foreach}
+
     </div>
 </div>
 

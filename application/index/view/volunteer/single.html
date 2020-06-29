@@ -49,7 +49,7 @@
                         <li class="has-children">
                             <a href="index.php?s=volunteer/volunteer">志愿者</a>
                             <ul class="dropdown">
-                                <li><a href="index.php?s=volunteer/share">志愿者分享</a></li>
+                                <!--<li><a href="index.php?s=volunteer/share">志愿者分享</a></li>-->
                                 <li><a href="index.php?s=volunteer/application">成为志愿者</a></li>
                                 {if $volunteer==''}
                                 <li><a href="index.php?s=volunteer/login">登录志愿者</a></li>
@@ -89,8 +89,6 @@
                 <div style="margin: 20px;margin-top: 33%;width: 200px;height: 150px;">
                     <img src="{$data.head}" alt="..." width="100%" height="100%" >
                 </div>
-
-                <!--<img src="$data.head}" alt="" width="100%" height="100%">-->
             </div>
             <div class="col-lg-10 bg-primary" style="padding: 30px;">
                 <table class="table table-hover" style="color: #1c7430;overflow: hidden">
@@ -134,6 +132,19 @@
 
     </div>
 </div>
+
+<footer>
+    <div class="row pt-5 mt-5 text-center">
+        <div class="col-md-12">
+            <div class="border-top pt-5">
+                <p class="copyright"><small>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >li-zhang-mao</a>
+                </small></p>
+
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 
 <script src="./static/js/index/jquery-3.3.1.min.js"></script>
