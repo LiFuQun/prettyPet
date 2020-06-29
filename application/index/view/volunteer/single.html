@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>志愿者个人页</title>
+    <link rel="stylesheet" href="./static/font/icomoon/style.css">
+
+    <link rel="stylesheet" href="./static/css/index/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/index/jquery-ui.css">
+    <link rel="stylesheet" href="./static/css/index/owl.carousel.min.css">
+    <link rel="stylesheet" href="./static/css/index/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="./static/css/index/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="./static/css/index/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="./static/font/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="./static/css/index/aos.css">
+
+    <link rel="stylesheet" href="./static/css/index/style.css">
+</head>
+<body>
+
+<header class="site-navbar js-sticky-header site-navbar-target" role="banner" >
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-6 col-xl-2">
+                <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">萌宠汇<span class="text-primary">.</span> </a></h1>
+            </div>
+
+            <div class="col-12 col-md-10 d-none d-xl-block">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+                    <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                        <li><a href="index.php?s=index/index" class="nav-link">首页</a></li>
+                        <li class="has-children">
+                            <a href="index.php?s=station/station">宠物驿站</a>
+                            <ul class="dropdown">
+                                <li><a href="index.php?s=station/application">创建驿站</a></li>
+                                <!--<li><a href="#">成为志愿者</a></li>-->
+                                {if $name==''}
+                                <li><a href="index.php?s=station/login">登录驿站</a></li>
+                                {else /} <li><a href="index.php?s=station/logout">退出驿站</a></li>
+                                {/if}
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="index.php?s=volunteer/volunteer">志愿者</a>
+                            <ul class="dropdown">
+                                <li><a href="index.php?s=volunteer/share">志愿者分享</a></li>
+                                <li><a href="index.php?s=volunteer/application">成为志愿者</a></li>
+                                {if $volunteer==''}
+                                <li><a href="index.php?s=volunteer/login">登录志愿者</a></li>
+                                {else /} <li><a href="index.php?s=volunteer/logout">退出登录</a></li>
+                                {/if}
+                            </ul>
+                        </li>
+                        <li><a href="index.php?s=baike/baike" class="nav-link">宠物百科</a></li>
+                        <li><a href="index.php?s=blog/blog" class="nav-link">博客</a></li>
+                        <li><a href="index.php?s=index/problem" class="nav-link">养宠小知识</a></li>
+                        <li><a href="index.php?s=index/contact" class="nav-link">反馈</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+        </div>
+    </div>
+
+</header>
+
+<div style="height: 100px"></div>
+
+<div class="" id="contact-section">
+    <div class="container">
+        <div class="row justify-content-center aos-init aos-animate" data-aos="fade-up">
+            <div class="col-lg-6 text-center heading-section mb-5">
+                <div class="paws">
+                    <span class="icon-paw"></span>
+                </div>
+                <h2 class="text-black mb-2">{$data.zname}志愿者的个人页</h2>
+                <p> 你若孤独，它陪伴你。在阳光的午后，蜷缩在你的臂弯。</p>
+            </div>
+        </div>
+        <div style="margin: 10px"></div>
+        <div class="row no-gutters" style="box-shadow: 0 7px 20px 0 grey;">
+            <div class="col-lg-2 bg-primary" >
+                <div style="margin: 20px;margin-top: 33%;width: 200px;height: 150px;">
+                    <img src="{$data.head}" alt="..." width="100%" height="100%" >
+                </div>
+
+                <!--<img src="$data.head}" alt="" width="100%" height="100%">-->
+            </div>
+            <div class="col-lg-10 bg-primary" style="padding: 30px;">
+                <table class="table table-hover" style="color: #1c7430;overflow: hidden">
+                    <tbody>
+                    <tr>
+                        <td>查看ta的驿站活动记录</td>
+                    </tr>
+                    <tr>
+                        <td>查看ta的等级记录</td>
+                    </tr>
+                    <tr>
+                        <td>查看ta的个人经验</td>
+                    </tr>
+                    <tr>
+                        <td>查看ta的简介</td>
+                    </tr>
+                    <tr>
+                        <td> <a href="#all1" style="color: white">查看ta的基本信息</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div style="margin-top: 100px;box-shadow: 0 7px 20px 0 grey;">
+            <table id="all1" class="table-hover table">
+                <thead><tr style="background-color: #B0DE78;color: white;text-align: center">
+                    <td>ta的基本信息</td></tr></thead>
+                <tbody>
+                <tr><td>昵称：{$data.zname}</td></tr>
+                <tr><td>地址：{$data.address}</td></tr>
+                <tr><td>学历：{$data.degree}</td></tr>
+                <tr><td>职位：{$data.position}</td></tr>
+                <tr><td>自我描述：{$data.des}</td></tr>
+                <tr><td>经历：{$data.exp}</td></tr>
+                <tr><td>等级：{$data.rank}</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+</body>
+
+<script src="./static/js/index/jquery-3.3.1.min.js"></script>
+<script src="./static/js/index/jquery-ui.js"></script>
+<script src="./static/js/index/popper.min.js"></script>
+<script src="./static/js/index/bootstrap.min.js"></script>
+<script src="./static/js/index/owl.carousel.min.js"></script>
+<script src="./static/js/index/jquery.countdown.min.js"></script>
+<script src="./static/js/index/jquery.easing.1.3.js"></script>
+<script src="./static/js/index/aos.js"></script>
+<script src="./static/js/index/jquery.fancybox.min.js"></script>
+<script src="./static/js/index/jquery.sticky.js"></script>
+<script src="./static/js/index/isotope.pkgd.min.js"></script>
+<script src="./static/js/index/main.js"></script>
+</html>
