@@ -9,12 +9,24 @@ class Blog extends Controller
 {
     public function index()
     {
-        return $this->publish();
+        return $this->blogs();
     }
 
-    //发布内容的页面
+    public function showblog(Request $request){
+        $id = $request->param('id');
+        $data = Db::table('publish')->where('id',$id)->find();
+        $this->assign('data',$data);
+        return $this->fetch('showblog');
+    }
+
     public function publish(){
         return $this->fetch('publish');
+    }
+
+    public function blogs(){
+        $data =Db::table('publish')->order('id', 'desc')->select();
+        $this->assign('data', $data);
+        return $this->fetch('blogs');
     }
 
     //保存发布的内容
@@ -30,9 +42,11 @@ class Blog extends Controller
             return 2;
         }
     }
+
     //保存发布内容时上传的图片
     public function upload(){
         move_uploaded_file($_FILES['image_file']['tmp_name'],'./static/upload/'.$_FILES['image_file']['name']);
         exit(json_encode(array('errno'=>0,'data'=>['./static/upload/'.$_FILES['image_file']['name']])));
     }
+
 }

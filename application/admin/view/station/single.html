@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>驿站申请信息</title>
+
+    <link rel="stylesheet" href="./static/css/index/style.css">
+    <link rel="stylesheet" href="./static/font/icomoon/style.css">
+    <link rel="stylesheet" href="./static/css/index/bootstrap.min.css">
+</head>
+<body>
+<div class="" id="contact-section">
+    <div style="left: 80%;top: 25%;position: fixed">
+        <table class="table table-hover">
+            <tbody>
+            <tr style="background-color: darkgreen;color: white">
+                <td>驿站申请</td>
+            </tr>
+            <tr  style="background-color: darkseagreen">
+                <td colspan="2">
+                    <a href="admin.php?s=station/dealapplication/flag/1/id/{$data.id}" title="申请通过" style="color: white">通过</a>
+                </td>
+            </tr>
+            <tr  style="background-color: #761c19">
+                <td colspan="2">
+                    <a href="admin.php?s=station/dealapplication/flag/3/id/{$data.id}" title="申请不通过" style="color: white">不通过</a>
+                </td>
+            </tr>
+            <tr  style="background-color: #9f191f">
+                <td colspan="2">
+                    <a href="admin.php?s=station/dealapplication/flag/2/id/{$data.id}" title="设置为异常驿站" style="color: white">设置为异常经营驿站</a>
+                </td>
+            </tr>
+            <tr  style="background-color: #b3d7ff">
+                <td colspan="2">
+                    <a href="javascript:history.go(-1)" style="color: white">返回</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <button class="btn btn-lg btn-adn">当前位置&nbsp;&nbsp;>>&nbsp;&nbsp;驿站申请详情</button>
+        <div class="row no-gutters">
+            <div class="col-lg-10">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-lg-10 text-center heading-section mb-5 align-self-center" style="padding: 20px;">
+                        <div class="paws">
+                            <span class="icon-paw"></span>
+                        </div>
+                        <h2 class="text-green mb-6">驿站申请信息</h2>
+
+                        <table class="table table-hover" style="color: #1c7430;margin-top: 50px">
+                            <tbody>
+                            <tr style="background-color: #b1dfbb">
+                                <td><b>申请人</b></td>
+                            </tr>
+                            <tr>
+                                <td>{$data.pname}</td>
+                            </tr>
+                            <tr  style="background-color: #b1dfbb">
+                                <td><b>申请人身份证号码</b></td>
+                            </tr>
+                            <tr>
+                                <td>{$data.id_number}</td>
+                            </tr>
+                            <tr  style="background-color: #b1dfbb">
+                                <td><b>申请驿站名</b></td>
+                            </tr>
+                            <tr>
+                                <td>{$data.sname}</td>
+                            </tr>
+                            <tr  style="background-color: #b1dfbb">
+                                <td><b>驿站申请地址</b></td>
+                            </tr>
+                            <tr>
+                                <td>{$data.address}</td>
+                            </tr>
+                            <tr  style="background-color: #b1dfbb">
+                                <td><b>描述</b></td>
+                            </tr>
+                            <tr>
+                                <td>{$data.des}</td>
+                            </tr>
+                            <tr  style="background-color: #b1dfbb">
+                                <td><b>申请时间</b></td>
+                            </tr>
+                            <tr>
+                                <td>{$data.create_time}</td>
+                            </tr>
+
+                            <tr  style="background-color: #b1dfbb">
+                                <td><b>驿站图片</b></td>
+                            </tr>
+                            <tr>
+                                <td> <img src="{$data.sphotos}" alt="Image" class="img-fluid"></td>
+                            </tr>
+                            <tr  style="background-color: #b1dfbb">
+                                <td><b>身份证正面</b></td>
+                            </tr>
+                            <tr>
+                                <td> <img src="{$data.zheng}" alt="Image" class="img-fluid"></td>
+                            </tr>
+                            <tr  style="background-color: #b1dfbb">
+                                <td><b>身份证反面</b></td>
+                            </tr>
+                            <tr>
+                                <td> <img src="{$data.fan}" alt="Image" class="img-fluid"></td>
+                            </tr>
+                            <tr  style="background-color: #b1dfbb">
+                                <td><b>手持身份证照片</b></td>
+                            </tr>
+                            <tr>
+                                <td> <img src="{$data.photos}" alt="Image" class="img-fluid"></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

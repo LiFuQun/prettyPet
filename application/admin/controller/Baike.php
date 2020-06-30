@@ -1,4 +1,5 @@
 <?php
+
 namespace app\admin\controller;
 use think\Controller;
 use think\Request;
@@ -7,13 +8,10 @@ use think\Db;
 class Baike extends Controller
 {
     public function baikes(){
+
         $data = Db::table('baike')->order('id','desc')->select();
         $this->assign('data',$data);
         return $this->fetch('baikes');
-    }
-
-    public function addclassb(){
-        return $this->fetch('addclass');
     }
 
     public function showbaike(Request $request){
@@ -26,6 +24,7 @@ class Baike extends Controller
     }
 
     public function addbaike(){
+
         $data = Db::table('classb')->select();
         $this->assign('data',$data);
         return $this->fetch('addbaike');
@@ -51,17 +50,16 @@ class Baike extends Controller
         $data['classb'] = $request->param('classb');
         $data['des'] = $request->param('des');
         $data['content'] = $request->param('content');
-        $db = Db::table('baike')->insert($data);
-        if ($db){
-           return 1;
-        }
-        else{
-            return 0;
+        try{
+            $db = Db::table('baike')->insert($data);
+            return 1;
+        }catch(\Exception $e){
+            return json($e->getMessage());
         }
     }
     //保存百科上传的图片
     public function upload(){
-        move_uploaded_file($_FILES['image_file']['tmp_name'],'./static/upload/baike/'.$_FILES['image_file']['name']);
-        exit(json_encode(array('errno'=>0,'data'=>['./static/upload/baike/'.$_FILES['image_file']['name']])));
+        move_uploaded_file($_FILES['image_file']['tmp_name'],'./static/img/index/baike/'.$_FILES['image_file']['name']);
+        exit(json_encode(array('errno'=>0,'data'=>['./static/img/index/baike/'.$_FILES['image_file']['name']])));
     }
 }

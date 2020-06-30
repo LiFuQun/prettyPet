@@ -42,6 +42,7 @@
         <div id="editor"></div>
     </div>
     <span id="FaBuresult" style="color: red;font-size: 40px"></span>
+    <a href="javascript:history.go(-1)" style="color: white;float: right;margin-left: 20px" class="btn btn-primary">返回</a>
     <input type="button" name="submit" onclick="if(save() == 1) return false;" value="发布" class="btn btn-primary" style="float: right;">
 </form>
 </body>
@@ -82,11 +83,12 @@
             alert('输入百科内容');
             return 1;
         }
+        // alert(data);
         $.post("admin.php?s=baike/dealbaike",data, function(data){
             if(data == 1){
                 alert('添加成功');
             }else {
-                alert('添加失败');
+                alert(data);
             }
         });
     }

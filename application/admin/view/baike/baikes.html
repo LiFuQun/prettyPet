@@ -11,12 +11,32 @@
 </head>
 <body>
 
+<button class="btn btn-lg btn-adn">当前位置&nbsp;&nbsp;>>&nbsp;&nbsp;宠物百科列表</button><br>
+<button class="btn btn-lg btn-adn">一共找到&nbsp;&nbsp;{$data|count}&nbsp;&nbsp;个信息</button>
+
+<div style="float: right;margin-right: 30px;">
+    <form action="admin.php?s=index/search" method="post">
+        <select name="search" id="search">
+            <option value="id">ID</option>
+            <option value="name">词名</option>
+            <option value="classb">分类</option>
+            <option value="des">描述</option>
+            <option value="content">内容</option>
+            <option value="create_time">发布时间</option>
+            <option value="update_time">修改时间</option>
+        </select>
+        <input type="hidden" name="table" value="baike">
+        <input type="text" name="value" id="value">
+        <input type="submit" value="查找" class="btn btn-xs btn-primary">
+        <a href="javascript:history.go(-1)" class="btn btn-success">返回</a>
+    </form>
+</div>
+
 <table class="table table-hover">
-    <thead style="background-color: black;color: white;font-size: 20px;">
+    <thead style="background-color: grey;color: white;font-size: 20px;">
     <tr>
-        <td>id</td>
-        <td>词名</td>
-        <td>分类</td>
+        <td width="100px">词名</td>
+        <td width="100px">分类</td>
         <td>描述</td>
         <td>创建时间</td>
         <td>最近修改</td>
@@ -26,7 +46,6 @@
     <tbody>
     {foreach $data as $d}
     <tr>
-        <td width="50px">{$d.id}</td>
         <td>{$d.name}</td>
         <td>{$d.classb}</td>
         <td>{$d.des}</td>

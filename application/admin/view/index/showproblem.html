@@ -9,11 +9,31 @@
 
 </head>
 <body>
+<button class="btn btn-lg btn-adn">当前位置&nbsp;&nbsp;>>&nbsp;&nbsp;常见问题列表</button><br>
+<button class="btn btn-lg btn-adn">一共找到&nbsp;&nbsp;{$data|count}&nbsp;&nbsp;个信息</button>
+
+<button class="btn btn-lg btn-adn">一共找到&nbsp;&nbsp;{$data|count}&nbsp;&nbsp;个信息</button>
+
+<div style="float: right;margin-right: 30px;">
+    <form action="admin.php?s=index/search" method="post">
+        <select name="search" id="search">
+            <option value="id">ID</option>
+            <option value="prolem">问题</option>
+            <option value="message">解说</option>
+            <option value="create_time">发布时间</option>
+            <option value="update_time">修改时间</option>
+        </select>
+        <input type="hidden" name="table" value="problem">
+        <input type="text" name="value" id="value">
+        <input type="submit" value="查找" class="btn btn-xs btn-primary">
+        <a href="javascript:history.go(-1)" class="btn btn-success">返回</a>
+    </form>
+</div>
+
 
 <table class="table table-hover">
-    <thead style="background-color: black;color: white;font-size: 20px;text-align: center;">
+    <thead style="background-color:#b1dfbb;color: white;font-size: 20px;">
     <tr>
-        <td>id</td>
         <td>问题</td>
         <td>解说</td>
         <td>添加时间</td>
@@ -24,49 +44,22 @@
     <tbody>
     {foreach $data as $d}
     <tr>
-        {foreach $d as $k=>$v}
-        {if $k == 'id'}
-        <td width="50px">{$v}</td>
-        {elseif $k == 'create_time'  /}
-        <td width="200px">{$v}</td>
-        {elseif $k == 'update_time' /}
-        <td width="200px">{$v}</td>
-        {else /}
-        <td width="300px">{$v}</td>
-        {/if}
-        {/foreach}
+        <td width="200px">{$d.problem}</td>
+       <td width="200px">{$d.message}</td>
+        <td width="100px">{$d.create_time}</td>
+        <td width="100px">{$d.update_time}</td>
         <td width="200px">
             <button class="btn btn-lg btn-primary">
             <a href="admin.php?s=index/edit/table/problem/id/{$d.id}"><font class="icon-edit" color="white"></font></a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
             <a href="admin.php?s=index/delete/table/problem/id/{$d.id}"><font class="icon-delete" color="#DC6A55"></font></a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp;
             <a href="admin.php?s=index/addproblem/"><font class="icon-add" color="white"></font></a>
             </button>
         </td>
-
     </tr>
     {/foreach}
     </tbody>
 </table>
-
 </body>
 </html>
-<script type="text/javascript">
-    function save() {
-
-        var data = new Object;
-        data.title = $.trim($('input[name="title"]').val());
-        data.pclass = $.trim($('select[name="pclass"]').val());
-        data.keyword = $.trim($('input[name="keywords"]').val());
-        data.des = $.trim($('input[name="describe"]').val());
-
-        $.post("admin.php?s=index/savepublish",data, function(data){
-            if(data == 1){
-                alert('发布成功');
-            }else {
-                alert('发布失败');
-            }
-        });
-    }
-</script>
