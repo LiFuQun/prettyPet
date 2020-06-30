@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>发表</title>
+
+    <link rel="stylesheet" type="text/css" href="./static/css/admin/bootstrap.min.css">
+
+    <script src="./static/js/admin/bootstrap.min.js"></script>
+
+    <script src="./static/js/admin/jquery.min.js"></script>
+
+    <script type="text/javascript" src="./static/js/admin/myJS.js"></script>
+
+    <script type="text/javascript" src="./static/js/wangEditor/release/wangEditor.min.js"></script>
+    <style type="text/css">
+        .form{margin: 10px 0;}
+        .form .input-group{margin: 20px 0;}
+    </style>
+</head>
+<body style="background-color: whitesmoke">
+<form method="post" class="form">
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">标题</span>
+        <input type="text" class="form-control" name="title" placeholder="请输入标题">
+    </div>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">&nbsp;关&nbsp;键&nbsp;字</span>
+        <input type="text" class="form-control" name="keywords" placeholder="请输入关键字">
+    </div>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述</span>
+        <input type="text" class="form-control" id="describe" name="describe" placeholder="请输入内容描述">
+    </div>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">内容</span>
+        <div id="editor"></div>
+    </div>
+    <span id="FaBuresult" style="color: red;font-size: 40px"></span>
+    <input type="button" name="submit" onclick="if(save() == 1) return false;" value="发布" class="btn btn-primary" style="float: right;">
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    // 初始化富文本编辑器
+    var editor;
+    function initEditor(){
+        var E=window.wangEditor;
+        editor=new E('#editor');
+        editor.customConfig.uploadImgServer = 'admin.php?s=blog/upload' ; // 上传图片到服务器
+        editor.customConfig.uploadFileName = 'image_file';   //自定义 fileName
+        editor.create();
+    }
+    initEditor();
+    //保存
+    //onclick='if(ConFabu() == 1) return false'
+    function save() {
+
+        var data = new Object;
+        data.title = $.trim($('input[name="title"]').val());
+        data.keyword = $.trim($('input[name="keywords"]').val());
+        data.des = $.trim($('input[name="describe"]').val());
+        data.content = editor.txt.html();
+        if(data.title == ''){
+            alert("输入标题");
+            return 1;
+        }
+        if(data.keywords == ''){
+            alert('输入关键字');
+            return 1;
+        }
+        if(data.content == '<p><br></p>'){
+            alert('输入博客内容');
+            return 1;
+        }
+        $.post("admin.php?s=blog/savepublish",data, function(data){
+            if(data == 1){
+                alert('发布成功');
+            }else {
+                alert('发布失败');
+            }
+        });
+    }
+</script>

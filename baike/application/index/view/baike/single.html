@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{$data.name}</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700, 900|Vollkorn:400i" rel="stylesheet">
+    <link rel="stylesheet" href="./static/font/icomoon/style.css">
+
+    <link rel="stylesheet" href="./static/css/index/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/index/jquery-ui.css">
+    <link rel="stylesheet" href="./static/css/index/owl.carousel.min.css">
+    <link rel="stylesheet" href="./static/css/index/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="./static/css/index/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="./static/css/index/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="./static/font/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="./static/css/index/aos.css">
+
+    <link rel="stylesheet" href="./static/css/index/style.css"> 
+    
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="home-section">
+    <div id="overlayer"></div>
+    <div class="loader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner" >
+
+        <div class="container">
+            <div class="row align-items-center">
+    
+                <div class="col-6 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">萌宠汇<span class="text-primary">.</span> </a></h1>
+                </div>
+    
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    
+                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li><a href="index.html" class="nav-link">首页</a></li>
+                            <li><a href="#" class="nav-link">驿站</a></li>
+                            <li><a href="#" class="nav-link">宠百科</a></li>
+                            <li><a href="#" class="nav-link">博客</a></li>
+                            <li><a href="#" class="nav-link">养宠小知识</a></li>
+                            <li><a href="#web-introduction" class="nav-link">网站简介</a></li>
+                            <li><a href="#developers" class="nav-link">开发人员</a></li>
+    
+                            <li class="has-children">
+                                <a href="#" class="nav-link">关于</a>
+                                <ul class="dropdown">
+                                    <li><a href="#" class="nav-link">服务</a></li>
+                                    <li><a href="index.php?s=index/contact" class="nav-link">反馈</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    
+    </header>
+
+
+
+    <section class="site-section" id="pricing-section">
+        <div class="container">
+          <div class="row justify-content-center" data-aos="fade-up">
+            <div class="col-lg-7 text-center heading-section mb-5">
+              <div class="paws">
+                <span class="icon-paw"></span>
+              </div>
+              <h2 class="mb-2 text-black heading">{$data.name}</h2>
+            
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 bg-primary p-3 p-md-5" data-aos="fade-up" data-aos-delay="">
+              
+  
+              <div class="pricing">
+                <h3 class="text-center text-white text-uppercase">img</h3>
+                <div class="price text-center mb-4 ">
+                  <span><span>&nbsp;</span>&nbsp;</span>
+                </div>
+                <img src="{$data.img}" style="width: 200px; height: 250px;">
+              </div>
+  
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 bg-dark  p-3 p-md-5" data-aos="fade-up" data-aos-delay="100">
+              <div class="pricing">
+                <h3 class="text-center text-white text-uppercase">概述</h3>
+                <div class="price text-center mb-4 ">
+                  <span><span>&nbsp;</span>&nbsp;</span>
+                </div>          
+                  <p style="color: white;">{$data.des}</p>
+
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 bg-primary  p-3 p-md-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="pricing">
+                <h3 class="text-center text-white text-uppercase">描述</h3>
+                <div class="price text-center mb-4 ">
+                  <span><span>&nbsp;</span>&nbsp;</span>
+                </div>
+                <p style="color: white;">{$data.content}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+    <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="row">
+                <div class="col-md-5">
+                  <h2 class="footer-heading mb-4">关于我们</h2>
+                  <p>了解各种宠物特性、养宠小知识，记录我与你的成长，丢失、流浪宠物的信息上传，领养属于自己的宠物......</p>
+                </div>
+                <div class="col-md-3 ml-auto">
+                  <h2 class="footer-heading mb-4">快速链接</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="smoothscroll">驿站</a></li>
+                    <li><a href="#" class="smoothscroll">宠百科</a></li>
+                    <li><a href="#" class="smoothscroll">博客</a></li>
+                    <li><a href="#" class="smoothscroll">养宠小知识</a></li>
+                    <li><a href="#web-introduction" class="smoothscroll">项目简介</a></li>
+                    <li><a href="#developers" class="smoothscroll">开发人员</a></li>
+    
+                  </ul>
+                </div>
+                <div class="col-md-3">
+                  <h2 class="footer-heading mb-4">分享转发</h2>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-weibo"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-qq"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-weixin"></span></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <h2 class="footer-heading mb-4">了解更多</h2>
+              <form action="#" method="post" class="footer-subscribe">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="输入内容" aria-label="Enter Email" aria-describedby="button-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary text-black" type="button" id="button-addon2">搜索</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+              <div class="border-top pt-5">
+                <p class="copyright"><small>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by li-zhang-mao</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
+          
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </footer>
+    
+    
+    
+      </div>
+    
+    <script src="./static/js/index/jquery-3.3.1.min.js"></script>
+    <script src="./static/js/index/jquery-ui.js"></script>
+    <script src="./static/js/index/popper.min.js"></script>
+    <script src="./static/js/index/bootstrap.min.js"></script>
+    <script src="./static/js/index/owl.carousel.min.js"></script>
+    <script src="./static/js/index/jquery.countdown.min.js"></script>
+    <script src="./static/js/index/jquery.easing.1.3.js"></script>
+    <script src="./static/js/index/aos.js"></script>
+    <script src="./static/js/index/jquery.fancybox.min.js"></script>
+    <script src="./static/js/index/jquery.sticky.js"></script>
+    <script src="./static/js/index/isotope.pkgd.min.js"></script>
+    <script src="./static/js/index/main.js"></script>
+    </body>
+    </html>
