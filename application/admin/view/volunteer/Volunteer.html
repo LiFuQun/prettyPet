@@ -10,14 +10,39 @@
 </head>
 <body>
 <button class="btn btn-lg btn-adn">当前位置&nbsp;&nbsp;>>&nbsp;&nbsp;全部志愿者列表</button>
+
 <div style="margin: 30px">
     <a href="admin.php?s=volunteer/state/flag/0" class="btn btn-primary">待审核志愿者</a>
     <a href="admin.php?s=volunteer/state/flag/1" class="btn btn-primary">审核通过志愿者</a>
     <a href="admin.php?s=volunteer/state/flag/2" class="btn btn-primary">审核未通过志愿者</a>
     <a href="admin.php?s=volunteer/state/flag/3" class="btn btn-primary">用户重复申请或异常志愿者</a>
     <a href="admin.php?s=volunteer/index" class="btn btn-primary">查看全部</a>
+    <a href="javascript:history.go(-1)" class="btn btn-success">返回</a>
+
 </div>
-<button class="btn btn-lg btn-adn">一共找到&nbsp;&nbsp;{$volunteer|count}&nbsp;&nbsp;个信息</button>
+<button class="btn btn-lg btn-adn">一共找到&nbsp;&nbsp;{$data|count}&nbsp;&nbsp;个信息</button>
+
+<div style="float: right;margin-right: 30px;">
+    <form action="admin.php?s=index/search" method="post">
+        <select name="search" id="search">
+            <option value="id">ID</option>
+            <option value="tname">真实姓名</option>
+            <option value="number">身份证号码</option>
+            <option value="address">地区</option>
+            <option value="zname">昵称</option>
+            <option value="degree">学历</option>
+            <option value="position">现任职位</option>
+            <option value="des">志愿者介绍</option>
+            <option value="exp">志愿者经历</option>
+            <option value="rank">志愿者等级</option>
+            <option value="create_time">申请时间</option>
+        </select>
+        <input type="hidden" name="table" value="volunteer">
+        <input type="text" name="value" id="value">
+        <input type="submit" value="查找" class="btn btn-xs btn-primary">
+    </form>
+</div>
+
 <table class="table table-hover">
     <thead style="background-color: #b1dfbb;color: white;font-size: 20px;">
     <tr>
@@ -31,7 +56,7 @@
     </tr>
     </thead>
     <tbody>
-    {foreach $volunteer as $d}
+    {foreach $data as $d}
     <tr>
         <td>{$d.tname}</td>
         <td>{$d.number}</td>
@@ -51,7 +76,7 @@
 
                 <a  href="admin.php?s=volunteer/single/id/{$d.id}" title="查看"><font class="icon-menu" color="white"></font></a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="admin.php?s=index/delete/table/publish/id/{$d.id}" title="删除"><font class="icon-delete" color="#DC6A55"></font></a>
+                <a href="admin.php?s=index/delete/table/volunteer/id/{$d.id}" title="删除"><font class="icon-delete" color="#DC6A55"></font></a>
 
             </button>
         </td>

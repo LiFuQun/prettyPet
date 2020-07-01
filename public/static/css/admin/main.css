@@ -1,0 +1,34 @@
+.box {
+    width:250px;
+    height:40px;
+    position:relative;
+    background-color:#ccc;
+    line-height:40px;
+    margin:20px auto;
+}
+.bg {
+    position:absolute;
+    height:100%;
+    background-color:#09BB07;
+    z-index:1;
+}
+.text {
+    font-size:12px;
+    width:100%;
+    position:absolute;
+    margin:0;
+    text-align:center;
+    z-index:2;
+}
+.btn {
+    width:40px;
+    height:38px;
+    background:lightgrey;
+    text-align: center;
+    color: white;
+    position:absolute;
+    top:0;
+    z-index:3;
+    border:1px solid #ccc;
+    cursor:pointer;
+}

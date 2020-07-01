@@ -45,8 +45,8 @@ class Blog extends Controller
 
     //保存发布内容时上传的图片
     public function upload(){
-        move_uploaded_file($_FILES['image_file']['tmp_name'],'./static/upload/blog/'.$_FILES['image_file']['name']);
-        exit(json_encode(array('errno'=>0,'data'=>['./static/upload/blog/'.$_FILES['image_file']['name']])));
+        move_uploaded_file($_FILES['image_file']['tmp_name'],'./static/upload/'.$_FILES['image_file']['name']);
+        exit(json_encode(array('errno'=>0,'data'=>['./static/upload/'.$_FILES['image_file']['name']])));
     }
 
 }

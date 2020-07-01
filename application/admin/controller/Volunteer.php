@@ -1,9 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * Date: 2020/6/29
- * Time: 15:01
- */
 
 namespace app\admin\controller;
 use function PHPSTORM_META\elementType;
@@ -17,15 +12,15 @@ class Volunteer extends Controller
 {
 
     public function index(){
-        $volunteer = Db::table('volunteer')->select();
-        $this->assign('volunteer',$volunteer);
+        $volunteer = Db::table('volunteer')->order('id','desc')->select();
+        $this->assign('data',$volunteer);
         return $this->fetch('volunteer');
     }
 
     public function state(Request $request){
         $flag = $request->param('flag');
         $data = Db::table('volunteer')->where('state',$flag)->select();
-        $this->assign('volunteer',$data);
+        $this->assign('data',$data);
         $this->assign('flag',$flag);
         return $this->fetch('state');
     }

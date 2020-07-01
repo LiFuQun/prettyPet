@@ -38,6 +38,7 @@
         <div id="editor"></div>
     </div>
     <span id="FaBuresult" style="color: red;font-size: 40px"></span>
+    <a href="javascript:history.go(-1)" style="color: white;float: right;margin-left: 20px" class="btn btn-primary">返回</a>
     <input type="button" name="submit" onclick="if(save() == 1) return false;" value="发布" class="btn btn-primary" style="float: right;">
 </form>
 </body>
@@ -53,8 +54,6 @@
         editor.create();
     }
     initEditor();
-    //保存
-    //onclick='if(ConFabu() == 1) return false'
     function save() {
 
         var data = new Object;

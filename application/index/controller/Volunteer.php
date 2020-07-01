@@ -5,21 +5,29 @@ use think\Controller;
 use think\Db;
 use think\Request;
 use think\facade\Cookie;
+
 class Volunteer extends Controller
 {
     public function volunteer(){
         if (Cookie::has('name')){
             $name = Cookie::get('name');
+            $sid = Cookie::get('sid');
         }else{
             $name ='';
+            $sid = '';
         }
         if (Cookie::has('volunteer')){
             $volunteer = Cookie::get('volunteer');
+            $vid = Cookie::get('vid');
         }else{
             $volunteer ='';
+            $vid = '';
         }
         $this->assign('volunteer',$volunteer);
         $this->assign('name',$name);
+        $this->assign('sid',Cookie::get('sid'));
+        $this->assign('vid',$vid);
+        $this->assign('sid',$sid);
 
         $data = Db::table('volunteer')->where('state',1)->select();
         $this->assign('data',$data);
@@ -37,20 +45,27 @@ class Volunteer extends Controller
         if($data == array(0)){
             return;
         }
-
         $this->assign('data',$data);
+
         if (Cookie::has('name')){
             $name = Cookie::get('name');
+            $sid = Cookie::get('sid');
         }else{
             $name ='';
+            $sid = '';
         }
         if (Cookie::has('volunteer')){
             $volunteer = Cookie::get('volunteer');
+            $vid = Cookie::get('vid');
         }else{
             $volunteer ='';
+            $vid = '';
         }
         $this->assign('volunteer',$volunteer);
         $this->assign('name',$name);
+        $this->assign('sid',Cookie::get('sid'));
+        $this->assign('vid',$vid);
+        $this->assign('sid',$sid);
 
         return $this->fetch('search');
     }
@@ -58,22 +73,38 @@ class Volunteer extends Controller
     public function application(){
         if (Cookie::has('name')){
             $name = Cookie::get('name');
+            $sid = Cookie::get('sid');
         }else{
             $name ='';
+            $sid = '';
         }
         if (Cookie::has('volunteer')){
             $volunteer = Cookie::get('volunteer');
+            $vid = Cookie::get('vid');
         }else{
             $volunteer ='';
+            $vid = '';
         }
         $this->assign('volunteer',$volunteer);
         $this->assign('name',$name);
+        $this->assign('sid',Cookie::get('sid'));
+        $this->assign('vid',$vid);
+        $this->assign('sid',$sid);
+
         return $this->fetch('volunteer/application');
     }
 
     public function dealvolunteer(){
         $data['tname'] = request()->post('tname');
         $data['number'] = request()->post('number');
+        if(strlen($data['number'])>20){
+            echo "<script>alert('输入身份证长度超过20位');history.go(-1)</script>";
+            return;
+        }
+        if(strlen($data['number'])<10){
+            echo "<script>alert('输入身份证长度少于10位');history.go(-1)</script>";
+            return;
+        }
         $data['zname'] = request()->post('zname');
         $data['address'] = request()->post('address');
         $data['degree'] = request()->post('degree');
@@ -82,11 +113,9 @@ class Volunteer extends Controller
         $data['exp'] = request()->post('exp');
         $path = [];
         $files = request()->file('image');
-//        echo dump($files);exit();
         foreach($files as $file){
             // 移动到框架应用根目录/uploads/ 目录下
             $info = $file->move( './static/upload/station/application');
-//            echo dump($info);
             if($info){
                 // 成功上传后 获取上传信息
                 $str = $info->getSaveName();
@@ -100,8 +129,6 @@ class Volunteer extends Controller
         $data['zheng'] = $path[1];
         $data['fan'] = $path[2];
         $data['sphotos'] = $path[3];
-
-//        echo dump($data);exit();
         foreach ($data as $d){
             if($d == ''){
                 echo "<script>alert('".$d."输入不能为空');history.go(-1)</script>";
@@ -116,8 +143,6 @@ class Volunteer extends Controller
             $user['sid'] =  Db::name('volunteer')->getLastInsID();   //获取当前驿站申请插入的id建立用户的外键
             $user['pwd'] = substr($data['number'],-4);
             $user['role'] = '志愿者';
-//            echo dump($user);
-//            exit();
             $db = Db::table('user')->insert($user);
 
             if($db){
@@ -135,16 +160,23 @@ class Volunteer extends Controller
     public function single(Request $request){
         if (Cookie::has('name')){
             $name = Cookie::get('name');
+            $sid = Cookie::get('sid');
         }else{
             $name ='';
+            $sid = '';
         }
         if (Cookie::has('volunteer')){
             $volunteer = Cookie::get('volunteer');
+            $vid = Cookie::get('vid');
         }else{
             $volunteer ='';
+            $vid = '';
         }
         $this->assign('volunteer',$volunteer);
         $this->assign('name',$name);
+        $this->assign('sid',Cookie::get('sid'));
+        $this->assign('vid',$vid);
+        $this->assign('sid',$sid);
 
         $id=$request->param('id');
         $data = Db::table('volunteer')->where('id',$id)->find();
@@ -154,4 +186,78 @@ class Volunteer extends Controller
         return $this->fetch('single');
     }
 
+    public function myvolunteer(Request $request){
+        if (Cookie::has('name')){
+            $name = Cookie::get('name');
+            $sid = Cookie::get('sid');
+        }else{
+            $name ='';
+            $sid = '';
+        }
+        if (Cookie::has('volunteer')){
+            $volunteer = Cookie::get('volunteer');
+            $vid = Cookie::get('vid');
+        }else{
+            $volunteer ='';
+            $vid = '';
+        }
+        $this->assign('volunteer',$volunteer);
+        $this->assign('name',$name);
+        $this->assign('sid',Cookie::get('sid'));
+        $this->assign('vid',$vid);
+        $this->assign('sid',$sid);
+
+        $sid = $request->param('sid');
+        $data = Db::table('volunteer')->where('id',$sid)->find();
+        $this->assign('data',$data);
+        return $this->fetch('myvolunteer');
+    }
+
+    public function login(){
+        return $this->fetch('login');
+    }
+    public function logout(){
+        //删除
+        Cookie::delete('volunteer');
+        Cookie::delete('vid');
+        $volunteer = '';$vid = '';
+        $volunteer ='';
+        if (Cookie::has('name')){
+            $name = Cookie::get('name');
+            $sid = Cookie::get('sid');
+        }else{
+            $name ='';
+            $sid = '';
+        }
+        $this->assign('volunteer',$volunteer);
+        $this->assign('name',$name);
+        $this->assign('sid',Cookie::get('sid'));
+        $this->assign('vid',$vid);
+        $this->assign('sid',$sid);
+
+        return $this->fetch('index/index');
+    }
+
+    public function deallogin(Request $request){
+        $data['name'] = $request->param('name');
+        $data['pwd'] = $request->param('pwd');
+        $db = Db::table('user')->where($data)->find();
+
+        if($db){
+            if($db['role'] != '志愿者'){
+                echo "<script>alert('该账号不是志愿者账号');history.go(-1)</script>";
+            }else{
+                $sid = $db['sid'];
+                // 设置Cookie 有效期为 3600秒
+                Cookie::set('volunteer',$data['name'],360000);
+                Cookie::set('vid',$sid,360000);
+                if (Cookie::has('name')){
+                    Cookie::delete('name');
+                }
+                echo "<script>parent.location.href='index.php?s=volunteer/myvolunteer/sid/".$sid."';</script>";
+            }
+        }else{
+            echo "<script>alert('密码或用户名错误');history.go(-1)</script>";
+        }
+    }
 }

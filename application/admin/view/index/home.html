@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="./static/css/admin/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./static/font/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="./static/font/lonicons/css/ionicons.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="./static/css/admin/AdminLTE.min.css">
+
+    <link rel="stylesheet" href="./static/css/admin/skin-blue.min.css">
+
+</head>
+<body>
+<div class="row" style="margin: 30px">
+    <div class="col-lg-4 col-xs-6 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <h3>{$baike}</h3>
+
+                <p>百科数量</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-book"></i>
+            </div>
+            <a href="admin.php?s=baike/baikes" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-6 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <h3>{$classb}</h3>
+
+                <p>百科分类</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-clone"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-6 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+            <a href="#">&nbsp;</a>
+            <a href="admin.php?s=baike/addbaike" class="small-box-footer">
+               发布百科 <i class="fa fa-arrow-circle-right"></i>
+            </a>
+            <a href="admin.php?s=baike/baikes" class="small-box-footer">
+                查看百科  <i class="fa fa-arrow-circle-right"></i>
+            </a>
+            <a href="#" class="small-box-footer">
+                添加百科分类 <i class="fa fa-arrow-circle-right"></i>
+            </a>
+            <a href="#" class="small-box-footer">
+                查看百科分类 <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 30px">
+    <div class="col-lg-4 col-xs-6 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+            <div class="inner">
+                <h3>{$blog}</h3>
+
+                <p>博客数量</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-map"></i>
+            </div>
+            <a href="admin.php?s=blog/blogs" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-6 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3>{$problem}</h3>
+
+                <p>常见问题</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-question"></i>
+            </div>
+            <a href="admin.php?s=index/showproblem" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-6 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <a href="#">&nbsp;</a>
+            <a href="admin.php?s=blog/publish" class="small-box-footer">
+                发布博客 <i class="fa fa-arrow-circle-right"></i>
+            </a>
+            <a href="admin.php?s=blog/blogs" class="small-box-footer">
+                查看博客  <i class="fa fa-arrow-circle-right"></i>
+            </a>
+            <a href="admin.php?s=blog/blogs" class="small-box-footer">
+                编辑博客 <i class="fa fa-arrow-circle-right"></i>
+            </a>
+            <a href="#">&nbsp;</a>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 30px">
+
+    <div class="col-lg-4 col-xs-6 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3>{$station}</h3>
+
+                <p>驿站数量</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-home"></i>
+            </div>
+            <a href="admin.php?s=station/index" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-6 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3>{$volunteer}</h3>
+
+                <p>志愿者数量</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-home"></i>
+            </div>
+            <a href="admin.php?s=volunteer/volunteer" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-xs-6 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+            <div class="inner">
+                <h3>{$msg}</h3>
+
+                <p>本站留言</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-comment"></i>
+            </div>
+            <a href="admin.php?s=index/message" class="small-box-footer">
+                查看本站留言 <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-xs-6 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+            <div class="inner">
+                <h3>本站信息</h3>
+            </div>
+            <div class="icon">
+                <i class="fa fa-bars"></i>
+            </div>
+            <a href="admin.php?s=index/message" class="small-box-footer">
+                查看本站信息<i class="fa fa-arrow-circle-right"></i>
+            </a>
+            <a href="admin.php?s=index/message" class="small-box-footer">
+                编辑本站信息 <i class="fa fa-arrow-circle-right"></i>
+            </a>
+
+        </div>
+    </div>
+</div>
+</body>
+<script src="./static/js/admin/jquery.min.js"></script>
+<script src="./static/js/admin/bootstrap.min.js"></script>
+<script src="./static/js/admin/adminlte.min.js"></script>
+</html>

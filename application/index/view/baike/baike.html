@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./static/font/icomoon/style.css">
+
+    <link rel="stylesheet" href="./static/css/index/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/index/jquery-ui.css">
+    <link rel="stylesheet" href="./static/css/index/owl.carousel.min.css">
+    <link rel="stylesheet" href="./static/css/index/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="./static/css/index/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="./static/css/index/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="./static/font/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="./static/css/index/aos.css">
+
+    <link rel="stylesheet" href="./static/css/index/style.css">
+</head>
+<body>
+
+<header class="site-navbar js-sticky-header site-navbar-target" role="banner" >
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-6 col-xl-2">
+                <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">萌宠汇<span class="text-primary">.</span> </a></h1>
+            </div>
+
+            <div class="col-12 col-md-10 d-none d-xl-block">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+                    <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                        <li><a href="index.php?s=index/index" class="nav-link">首页</a></li>
+                        <li class="has-children">
+                            <a href="index.php?s=station/station">宠物驿站</a>
+                            <ul class="dropdown">
+                                <li><a href="index.php?s=station/application">创建驿站</a></li>
+                                {if $name==''}
+                                <li><a href="index.php?s=station/login">登录驿站</a></li>
+                                {else /}
+                                <li><a href="index.php?s=station/mystation/sid/{$sid}">我的驿站页</a></li>
+                                <li><a href="index.php?s=station/logout">退出驿站</a></li>
+                                {/if}
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="index.php?s=volunteer/volunteer">志愿者</a>
+                            <ul class="dropdown">
+                                <li><a href="index.php?s=volunteer/application">成为志愿者</a></li>
+                                {if $volunteer==''}
+                                <li><a href="index.php?s=volunteer/login">登录志愿者</a></li>
+                                {else /}
+                                <li><a href="index.php?s=volunteer/myvolunteer/sid/{$vid}">我的志愿者页</a></li>
+                                <li><a href="index.php?s=volunteer/logout">退出登录</a></li>
+                                {/if}
+                            </ul>
+                        </li>
+                        <li><a href="index.php?s=baike/baike" class="nav-link">宠物百科</a></li>
+                        <li><a href="index.php?s=blog/blog" class="nav-link">博客</a></li>
+                        <li><a href="index.php?s=index/problem" class="nav-link">养宠小知识</a></li>
+                        <li><a href="index.php?s=index/contact" class="nav-link">反馈</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+        </div>
+    </div>
+
+</header>
+<div style="height: 100px"></div>
+
+
+<section class="site-section">
+    <div class="container">
+        <div class="row justify-content-center" data-aos="fade-up">
+            <div class="col-lg-6 text-center heading-section mb-5">
+                <div class="paws">
+                    <span class="icon-paw"></span>
+                </div>
+                <h2 class="text-black mb-2">宠物小百科</h2>
+                <p>宠物宝典，这里有各种宠物的基本信息。</p>
+            </div>
+        </div>
+        <div class="sidebar-box" align="center">
+            <form action="index.php?s=baike/search" method="post" class="search-form">
+                <div class="form-group">
+                    <select name="select" id="select" style="width: 100px;border: none;height: 40px">
+                        <option value="name">词名</option>
+                        <option value="classb">类别</option>
+                        <option value="des">描述</option>
+                        <option value="content">内容</option>
+                        <option value="create_time">发布时间</option>
+
+                    </select>
+                    <input type="text" name="search" id="search" placeholder="输入查询内容" style="width: 500px;border: none;height: 40px">
+                    <input type="submit" value="查询" style="width: 100px;border: none;height: 40px">
+                </div>
+            </form>
+        </div>
+
+        <div class="row hover-1-wrap mb-5 mb-lg-0">
+            <div class="col-12">
+                <div class="row">
+                    <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
+                        <a href="#" class="hover-1">
+                            <img src="./static/img/index/baike/class-1.jpg" alt="Image" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
+                        <h2 class="text-black">猫猫</h2>
+                        <p class="mb-4">{foreach $data1 as $d1}
+                            <a href="index.php?s=baike/single/id/{$d1.id}">{$d1.name}&nbsp;&nbsp;</a>
+                            {/foreach}</p>
+                        <p><a href="#" class="btn btn-primary">了解更多</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row hover-1-wrap mb-5 mb-lg-0">
+            <div class="col-12">
+                <div class="row">
+                    <div class="mb-4 mb-lg-0 col-lg-6"  data-aos="fade-left">
+                        <a href="#" class="hover-1">
+                            <img src="./static/img/index/baike/class-2.jpg" alt="Image" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-lg-5 ml-auto align-self-center"  data-aos="fade-right">
+                        <h2 class="text-black">狗狗</h2>
+                        <p class="mb-4">{foreach $data2 as $d2}
+                            <a href="index.php?s=baike/single/id/{$d2.id}">{$d2.name}&nbsp;&nbsp;</a>
+                            {/foreach}</p>
+                        <p><a href="#" class="btn btn-primary">了解更多</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row hover-1-wrap">
+            <div class="col-12">
+                <div class="row">
+                    <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
+                        <a href="#" class="hover-1">
+                            <img src="./static/img/index/baike/class-3.jpg" alt="Image" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
+                        <h2 class="text-black">其他</h2>
+                        <p class="mb-4">{foreach $data3 as $d3}
+                            <a href="index.php?s=baike/single/id/{$d3.id}">{$d3.name}&nbsp;&nbsp;</a>
+                            {/foreach}</p>
+                        <p><a href="#" class="btn btn-primary">了解更多</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h2 class="footer-heading mb-4">关于我们</h2>
+                        <p>了解各种宠物特性、养宠小知识，记录我与你的成长，丢失、流浪宠物的信息上传，领养属于自己的宠物......</p>
+                    </div>
+                    <div class="col-md-3 ml-auto">
+                        <h2 class="footer-heading mb-4">快速链接</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="smoothscroll">驿站</a></li>
+                            <li><a href="#" class="smoothscroll">宠百科</a></li>
+                            <li><a href="#" class="smoothscroll">博客</a></li>
+                            <li><a href="#" class="smoothscroll">养宠小知识</a></li>
+                            <li><a href="#web-introduction" class="smoothscroll">项目简介</a></li>
+                            <li><a href="#developers" class="smoothscroll">开发人员</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h2 class="footer-heading mb-4">分享转发</h2>
+                        <a href="#" class="pl-3 pr-3"><span class="icon-weibo"></span></a>
+                        <a href="#" class="pl-3 pr-3"><span class="icon-qq"></span></a>
+                        <a href="#" class="pl-3 pr-3"><span class="icon-weixin"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h2 class="footer-heading mb-4">了解更多</h2>
+                <form action="#" method="post" class="footer-subscribe">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="输入内容" aria-label="Enter Email" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary text-black" type="button" id="button-addon2">搜索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+                <div class="border-top pt-5">
+                    <p class="copyright"><small>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by li-zhang-mao</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+</body>
+<script src="./static/js/index/jquery-3.3.1.min.js"></script>
+<script src="./static/js/index/jquery-ui.js"></script>
+<script src="./static/js/index/popper.min.js"></script>
+<script src="./static/js/index/bootstrap.min.js"></script>
+<script src="./static/js/index/owl.carousel.min.js"></script>
+<script src="./static/js/index/jquery.countdown.min.js"></script>
+<script src="./static/js/index/jquery.easing.1.3.js"></script>
+<script src="./static/js/index/aos.js"></script>
+<script src="./static/js/index/jquery.fancybox.min.js"></script>
+<script src="./static/js/index/jquery.sticky.js"></script>
+<script src="./static/js/index/isotope.pkgd.min.js"></script>
+<script src="./static/js/index/main.js"></script>
+</html>
