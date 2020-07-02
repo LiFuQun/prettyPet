@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>萌宠汇后台</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="./static/css/admin/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="./static/font/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="./static/css/admin/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="./static/css/admin/AdminLTE.min.css">
+
+  <link rel="stylesheet" href="./static/css/admin/skin-blue.min.css">
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <span class="logo-mini"><b><font class="fa fa-user-circle" color="white"></font></b></span>
+      <span class="logo-lg"><b><font class="fa fa-user-circle" color="white"></font></b>&nbsp;&nbsp;&nbsp;admin</span>
+    </a>
+
+    <nav class="navbar navbar-static-top" role="navigation">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- The user image in the navbar-->
+              <img src="./static/img/admin/moren.png" class="user-image" alt="User Image">
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs">{$admin}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header">
+                <img src="./static/img/admin/moren.png" class="img-circle" alt="User Image">
+
+                <p>
+                  {$admin} - 管理员
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">个人</a>
+                </div>
+                <div class="pull-right">
+                  <a href="admin.php?s=index/logout" class="btn btn-default btn-flat">退出登录</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="./static/img/admin/moren.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{$admin}</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i>在线登录</a>
+        </div>
+      </div>
+
+      <!-- search form (Optional) -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">权限</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li id="index" class="active"><a href="#"><i class="fa fa-link"></i> <span>首页</span></a></li>
+        <li id="station"><a href="#"><i class="fa fa-link"></i> <span>驿站</span></a></li>
+        <li id="volunteer"><a href="#"><i class="fa fa-link"></i> <span>志愿者</span></a></li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>宠物百科</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li id="fbaike"><a href="#">发布</a></li>
+            <li id="sbaike"><a href="#">查看</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>博客</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li id="fabu"><a href="#">发布</a></li>
+            <li id="blogs"><a href="#">查看</a></li>
+          </ul>
+        </li>
+        <li id="message"><a href="#"><i class="fa fa-link"></i> <span>反馈信息</span></a></li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>宠物小知识</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li id="problem"><a href="#">常见问题</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>关于</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <!--<li id="server"><a href="#">服务</a></li>-->
+            <li id="web"><a href="#">网站信息</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content container-fluid">
+      <div id="content" style="width: 100%;height: 800px">
+        <iframe src="admin.php?s=index/home" width="100%" height="100%" style="border: none"></iframe>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer>
+    <div class="row pt-5 mt-5 text-center">
+      <div class="col-md-12">
+        <div class="border-top pt-5">
+          <p class="copyright" style="color: white;"><small>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >li-zhang-mao</a>
+          </small></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="./static/js/admin/jquery.min.js"></script>
+<script src="./static/js/admin/bootstrap.min.js"></script>
+<script src="./static/js/admin/adminlte.min.js"></script>
+<script>
+$(function () {
+    // index,fabu,message,blogs,problem,server,web
+    $('#index').click(function () {
+        $("#content").html('<iframe src="admin.php?s=index/home" width="100%" height="100%" style="border: none"></iframe>');
+    });
+    $('#fabu').click(function () {
+        $("#content").html('<iframe src="admin.php?s=blog/publish" width="100%" height="100%" style="border: none"></iframe>');
+    });
+    $('#blogs').click(function () {
+        $("#content").html('<iframe src="admin.php?s=blog/blogs" width="100%" height="100%" style="border: none"></iframe>');
+    });
+    $('#message').click(function () {
+        $("#content").html('<iframe src="admin.php?s=index/message" width="100%" height="100%" style="border: none"></iframe>');
+    });
+    $('#problem').click(function () {
+        $("#content").html('<iframe src="admin.php?s=index/showproblem" width="100%" height="100%" style="border: none"></iframe>');
+        // $(location).attr('href', 'admin.php?s=index/showproblem');
+    });
+    $('#server').click(function () {
+        $("#content").html('<iframe src="admin.php?s=index/server" width="100%" height="100%" style="border: none"></iframe>');
+    });
+    $('#web').click(function () {
+        $("#content").html('<iframe src="admin.php?s=index/web" width="100%" height="100%" style="border: none"></iframe>');
+    });
+    $('#fbaike').click(function () {
+        $("#content").html('<iframe src="admin.php?s=baike/addbaike" width="100%" height="100%" style="border: none"></iframe>');
+    });
+    $('#sbaike').click(function () {
+        $("#content").html('<iframe src="admin.php?s=baike/baikes" width="100%" height="100%" style="border: none"></iframe>');
+    });
+    $('#station').click(function () {
+        $("#content").html('<iframe src="admin.php?s=station/index" width="100%" height="100%" style="border: none"></iframe>');
+    });
+    $('#volunteer').click(function () {
+        $("#content").html('<iframe src="admin.php?s=volunteer/index" width="100%" height="100%" style="border: none"></iframe>');
+    });
+});
+</script>
+</body>
+</html>

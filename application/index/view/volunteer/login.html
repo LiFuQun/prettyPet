@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录志愿者</title>
+    <link rel="stylesheet" href="./static/css/admin/bootstrap.min.css">
+</head>
+<body style="background-color: #F9F9F9;font-size: 20px;">
+<div class="container" style="width: 25%;margin-top: 0;">
+    <div style="background-color: white;margin-top: 50px;padding: 50px;border-radius: 10px;box-shadow: 0 5px 10px 0 grey" >
+        <div align="center">
+            <img src="./static/img/index/moren.png" alt="..." class="img-circle" height="100px" width="100px;">
+            <h3>欢迎登录志愿者</h3>
+        </div>
+        <hr>
+
+        <form method="post" action="index.php?s=volunteer/deallogin">
+            <div class="form-group" style="margin-top: 20px">
+                <label for="name">用户名</label>
+                <input type="text" name="name" class="form-control" id="name" placeholder="真实姓名">
+            </div>
+            <div class="form-group" style="margin-top: 20px">
+                <label for="Password">密码</label>
+                <a href="#" style="float: right;font-size: 12px;">忘记密码</a>
+                <input type="password" name="pwd" class="form-control" id="password" placeholder="身份证后四位">
+            </div>
+            <div id="result" align="center"></div>
+            <button type="submit" id="button" class="btn btn-primary btn-block" style="margin-top: 30px">登录</button>
+        </form>
+    </div>
+</div>
+</body>
+<script src="./static/js/admin/jquery.min.js"></script>
+</html>

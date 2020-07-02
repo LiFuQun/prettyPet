@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑</title>
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700, 900|Vollkorn:400i" rel="stylesheet">-->
+
+    <link rel="stylesheet" href="./static/css/index/style.css">
+    <link rel="stylesheet" href="./static/font/icomoon/style.css">
+    <link rel="stylesheet" href="./static/css/index/bootstrap.min.css">
+</head>
+<body>
+
+<div class="" id="contact-section">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-12 bg-primary">
+                <form action="admin.php?s=index/saveEdit/table/{$table}/id/{$data.id}" method="post" class="p-5 contact-form">
+                    <h2 class="h4 mb-5 heading">编辑</h2>
+                    {foreach $data as $k=>$v}
+                    {if $k == 'id'}
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label><font color="white">id: {$v}</font></label>
+                        </div>
+                    </div>
+                    {elseif $k == 'create_time' /}
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label><font color="white">发布时间为: {$v}</font></label>
+                        </div>
+                    </div>
+                    {elseif $k == 'update_time' /}
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label><font color="white">最新修改时间为: {$v}</font></label>
+                        </div>
+                    </div>
+                    {else /}
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="{$k}">{$k}</label>
+                            <textarea name="{$k}" id="{$k}" cols="30" rows="4" class="form-control">{$v}</textarea>
+                        </div>
+                    </div>
+                    {/if}
+                    {/foreach}
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <a href="javascript:history.go(-1)" style="color: white" class="btn btn-dark btn-md text-white">返回</a>                                </td>
+                            <input type="submit" value="提交" class="btn btn-dark btn-md text-white">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
