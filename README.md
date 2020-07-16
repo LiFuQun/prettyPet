@@ -22,15 +22,12 @@
 
 ## 运行方式
 ~~~
-1.项目中thinkphp文件上传不了,
-  需要下载ThinkPHP 5.1（LTS版本）并将其中的thinkphp整个文件复制到application同级目录中。
+1.创建db_pet数据库，导入db_pet.sql数据库文件
 
-2.创建db_pet数据库，导入db_pet.sql数据库文件
-
-3.管理员登录账号：admin 
+2.管理员登录账号：admin 
   管理员登录密码：admin
 
-4.前台入口文件：application/public/index.php
-5.后台入口文件：application/public/admin.php
+3.前台入口文件：application/public/index.php
+4.后台入口文件：application/public/admin.php
 ~~~
 
